@@ -14,7 +14,9 @@
             <td>{{item.price}}</td>
             <td>{{item.quantity}}</td>
             <td>
-                <input type="number" class="form-control" name="count" [(ngModel)]="item.count">
+                <form [formGroup]="formCount">
+                    <input type="number" class="form-control" name="count" formControlName="count" (input)="makeChange()">
+                </form>
             </td>
             <td>
                 <button class="btn btn-info" (click)="buy(i)">buy</button>
