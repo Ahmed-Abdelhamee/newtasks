@@ -1,0 +1,33 @@
+<div class="col-12">
+
+    <select name="categ" id="categ" (change)="select($event)" class="btn btn-danger">
+        <option value="0" selected>choose ..</option>
+        <option value="222">tv</option>
+        <option value="10702">mobile</option>
+        <option value="444">radio</option>
+    </select>
+
+
+    <app-child [categoryArr]="productsCategory"  (categorySellected)="getChildData($event)"></app-child>
+
+    <table class="col-12" *ngIf="buyed!=0">
+        <p class="text-center alert-success"> cart data</p>
+        <tr>
+            <th>photo</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantitiy</th>
+            <th>count</th>
+            <th>total</th>
+        </tr>
+        <tr class="data" *ngFor="let item of paid_Data_From_Child; let i=index" >
+            <td><img [src]="item.img" alt="image" class="productImg"></td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.count}}</td>
+            <td> {{total}}</td>
+        </tr> 
+    </table>
+    
+</div>

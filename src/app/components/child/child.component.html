@@ -1,0 +1,24 @@
+<div class="col-12">
+    <table class="col-12">
+        <tr>
+            <th>photo</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantitiy</th>
+            <th>count</th>
+            <th>buy</th>
+        </tr>
+        <tr class="data" *ngFor="let item of categoryArr; let i=index" >
+            <td><img [src]="item.img" alt="image" class="productImg"></td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.quantity}}</td>
+            <td>
+                <input type="number" class="form-control" name="count" [(ngModel)]="item.count">
+            </td>
+            <td>
+                <button class="btn btn-info" (click)="buy(i)">buy</button>
+            </td>
+        </tr>
+    </table>
+</div>
