@@ -12,19 +12,23 @@ export class ParentComponent implements OnInit {
   // your all general data 
   ProductList:cart[]=[
     {id:1,name:"iphone",quantity:41, price:14500, img:"assets/iphone.png",CategoryID:10702,count:1},
-    {id:2,name:"redio",quantity:0, price:500, img:"assets/radio.png",CategoryID:444,count:5},
+    {id:2,name:"redio",quantity:10, price:500, img:"assets/radio.png",CategoryID:444,count:5},
     {id:3,name:"TV",quantity:70, price:10500, img:"assets/tv.png",CategoryID:222,count:3},
-    {id:4,name:"TV",quantity:1, price:10500, img:"assets/tv.png",CategoryID:222,count:2},
+    {id:4,name:"smartphone",quantity:1, price:4000, img:"assets/smartphone.png",CategoryID:555,count:2},
   ]
 
   
-  productsCategory:cart[]=[]; //this is array we send to child
-  category:number=0; // returns category numbers or 0 for default
-
+  productsCategory:cart[]=[]; //this is array we send to child 
 
   paid_Data_From_Child:cart[]=[] //array data to save the data comes from child
-  total:number[]=[];
-  buyed:number=0; // for check paid to show the data 
+
+  result:number[]=[];
+
+  buyed:boolean=false; // for check paid to show the data 
+
+  index:number=0;
+
+  totalPrice:number=0
 
   ngOnInit(): void {
     // data from parent to child
@@ -32,55 +36,40 @@ export class ParentComponent implements OnInit {
   }
   
   // data from parent to child
-  select(event:any){
-    this.productsCategory=[]
-    this.category=event.target.value;
-    // check selected category
-    if(this.category==0){
+  selectProduct(event:any){
+    this.productsCategory=[];
+    this.index=0;
+    if(event.target.value==0){
       this.productsCategory=this.ProductList
-    }else{
+    }else{ // forloop to check the selected category and push object selected
       for(let item of this.ProductList){
-        if(this.category==item.CategoryID){
+        if(event.target.value==item.CategoryID){
           this.productsCategory.push(item)
         }
       }
     }
   }
   
-  // data from child to parent
+ // data from child to parent
   getChildData(data:cart){
-    this.buyed=1;  // for show data 
-
+    this.buyed=true;  // for show data 
     let exist=false;
-    let existIndex=0;
-// for loop to check the data is choosed or not
-    for(let i=0;i<this.paid_Data_From_Child.length;i++){
-      if(this.paid_Data_From_Child[i].id==data.id){
+    for(let i in this.paid_Data_From_Child){
+      if(this.paid_Data_From_Child[i].id==data.id)
+      {
+        this.paid_Data_From_Child[i].count=data.count;
         exist=true;
-        existIndex=i;
-        break;
-      }else{
-        exist=false;
+        this.result[i]=this.paid_Data_From_Child[i].count! * this.paid_Data_From_Child[i].price!
       }
     }
-    
-//  check the data is choosed or not and pass the value
-    if(exist){
-      this.paid_Data_From_Child[existIndex].count=data.count;
-      let count = this.paid_Data_From_Child[existIndex].count !    ;
-      let price= this.paid_Data_From_Child[existIndex].price !  ;
-      this.total[existIndex]=count*price
-    }else{
+    if(exist==false){
       this.paid_Data_From_Child.push(data);
-
-      let index=this.paid_Data_From_Child.length-1;
-      let count = this.paid_Data_From_Child[index].count !    ;
-      let price= this.paid_Data_From_Child[index].price !  ;
-      this.total[index]=count*price
+      this.result.push(this.paid_Data_From_Child[this.index].count! * this.paid_Data_From_Child[this.index].price!)
+      this.index++
     }
-    
-
-
+    this.totalPrice=0
+    for(let i of this.result){
+      this.totalPrice += i;
+    }
   }
-
 }

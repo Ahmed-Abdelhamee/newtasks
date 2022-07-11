@@ -1,0 +1,33 @@
+[class*="col-"]{
+    float: left;
+    padding: 15px;
+}
+.card{
+    margin-left: 4%;
+}
+label{
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(95, 85, 85);
+}
+span{
+    margin-left: 5px;
+}
+.title{
+    font-family: 'Lobster', cursive;
+    color: lightslategray;
+    text-align: center;
+}
+.additionalPhone{
+    margin-top: 7px;
+}
+.btn-primary{
+    font-size: 12px;
+    padding: 5px;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}

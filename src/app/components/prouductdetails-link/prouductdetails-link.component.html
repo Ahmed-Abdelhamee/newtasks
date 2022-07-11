@@ -1,0 +1,14 @@
+<div class="col-12 divStyle">
+    <div class="col-sm-3"> <a routerLink="/product-lab4" class="btn btn-warning"> go back </a></div>
+    <div class="col-sm-6">
+        <div class="card">
+            <img [src]="product.img" alt="photo" >
+            <p>name : {{product.name}}</p>
+            <p>price : {{product.price}}</p>
+            <p>quantity : {{product.quantity}}</p>
+            <p>CategoryID : {{product.CategoryID}}</p>
+    </div>
+    <button class="btn btn-danger"(click)="getProductByID(-1)"> previous</button>
+            <button class="btn btn-success" (click)="getProductByID(1)"> next</button>
+    </div>
+</div>

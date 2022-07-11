@@ -1,22 +1,21 @@
 <div class="col-12">
 
-    <select name="categ" id="categ" (change)="select($event)" class="btn btn-danger">
-        <option value="0" selected>choose ..</option>
+    <select name="categ" id="categ" (change)="selectProduct($event)" class="btn btn-danger">
+        <option value="0" selected>all ..</option>
         <option value="222">tv</option>
         <option value="10702">mobile</option>
         <option value="444">radio</option>
     </select>
 
 
-    <app-child [categoryArr]="productsCategory"  (categorySellected)="getChildData($event)"></app-child>
+    <app-child class="col-12" [categoryArr]="productsCategory"  (categorySellected)="getChildData($event)"></app-child>
 
-    <table class="col-12" *ngIf="buyed!=0">
+    <table class="col-12" *ngIf="buyed">
         <p class="text-center alert-success"> cart data</p>
         <tr>
             <th>photo</th>
             <th>name</th>
             <th>price</th>
-            <th>quantitiy</th>
             <th>count</th>
             <th>total</th>
         </tr>
@@ -24,10 +23,17 @@
             <td><img [src]="item.img" alt="image" class="productImg"></td>
             <td>{{item.name}}</td>
             <td>{{item.price}}</td>
-            <td>{{item.quantity}}</td>
             <td>{{item.count}}</td>
-            <td> {{total[i]}}</td>
+            <td> {{result[i]}}</td>
         </tr> 
     </table>
     
+    <div class="col-12">
+        <h3>
+            <span class="alert alert-success"> total price of cart</span>
+            <span> : {{totalPrice}}</span>
+        </h3>
+    </div>
+    
 </div>
+

@@ -1,0 +1,37 @@
+<div class="col-12">
+    <div class="col-sm-3" style="height: 1px;"></div>
+    <div class="col-sm-5 card">
+        <form class="from-validation" [formGroup]="regist" (ngSubmit)="submit()" validators>
+            <h2 class="title">register</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" [class.is-invalid]="name?.invalid && name?.touched">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" [class.is-invalid]="email?.invalid && email?.touched && email?.errors?.['invalidname']">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter pass" formControlName="pass" [class.is-invalid]="pass?.invalid && pass?.touched">
+            </div>
+            <div class="form-group" formArrayName="phone" *ngFor="let item of phone?.controls; let i=index">
+                <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="phone?.invalid && phone?.touched">
+                <span><button type="button" (click)=" addNumber()" class="btn btn-primary float-right" *ngIf="i==0"> add another number</button></span>
+            </div>
+
+            <div class="form-group" formGroupName="address">
+                <label for="address">address :</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter city" formControlName="city" [class.is-invalid]="city?.invalid && city?.touched">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter street" formControlName="street" [class.is-invalid]="street?.invalid && street?.touched">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter postal code" formControlName="postal" [class.is-invalid]="postal?.invalid && postal?.touched">
+                </div>
+            </div>
+            <div class="submit">
+                <button type="submit" class="btn btn-info"> create account</button>
+            </div>
+        </form>
+    </div>
+</div>

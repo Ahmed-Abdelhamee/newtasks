@@ -1,0 +1,77 @@
+[class*="col-"]{
+    float: left;
+}
+.col-12{
+    background-color: azure;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.data{
+    margin-bottom: 20px;
+}
+.data p{
+    font-size: 18px;
+    text-align: left;
+    font-weight: 700;
+    padding-left: 25px;
+}
+.data .productImg{
+    width: 200px;
+    height: 200px;
+    margin: 20px 0px;
+}
+.componentTitle{
+    text-align: center;
+}
+.globalDiv{
+    padding: 20px 0px;
+}
+.products{
+    margin-top: 100px;
+}
+.productDiv{
+    padding: 5px;
+}
+.productDiv p{
+    line-height: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.categoryDiv{
+    margin-top: 40px;
+}
+
+.priceText{
+    color: red;
+}
+.productImg{
+    width: 100%;
+    height: 250px;
+    margin: 20px 0px;
+}
+.card{
+    padding: 10px;
+    width: 100%;
+}
+.btn-Add-Cart-Div{
+    padding: 5px 25px;
+}
+.btnCart{
+    margin-top: 20px;
+    width: auto;
+}
+.bagIconWhite{
+    color: white;
+    margin-left: 5px;
+}
+.bagIconBlack{
+    color: black;
+    margin-left: 5px;
+}
+.btn-dark{
+    margin-left: 10px;
+}
+.btn-danger{
+    margin-bottom: 25px;
+}

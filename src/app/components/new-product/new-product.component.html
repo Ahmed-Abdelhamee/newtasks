@@ -1,0 +1,47 @@
+<div class="col-12">
+    <div class="col-sm-4">
+        <a href="/admin/insertproduct">admin/insertproduct</a>
+    </div>
+    <div class="col-sm-4">
+        <form #f="ngForm" [formGroup]="product" (ngSubmit)="submit(f)" class="card" novalidate>
+            <p class="title">New Product</p>
+            <input type="text" placeholder="Enter product name" class="form-control" formControlName="name">
+            <input type="text" placeholder="Enter price" class="form-control" formControlName="price">
+            <input type="text" placeholder="Enter category" class="form-control" formControlName="CategoryID">
+            <input type="text" placeholder="Enter quantity" class="form-control" formControlName="quantity">
+            <input type="file" placeholder="upload" class="form-control" (change)="uploadFile($event)">
+            <input type="submit" [class]="!btnUpdate ? 'btn btn-info' : 'btn btn-warning' " [value]="!btnUpdate ? 'new product' : 'update'" >
+        </form>
+    </div>
+    
+</div>
+
+
+<!-- get data  -->
+<div class="col-12">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">img</th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">quantity</th>
+            <th scope="col">price</th>
+            <th scope="col">categoryID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products; let i=index">
+            <th scope="col"><img src="{{item.img}}" alt="img" width="150px" height="100px"></th>
+            <th scope="col" style="padding-top:45px">{{item.id}}</th>
+            <th scope="col" style="padding-top:45px">{{item.name}}</th>
+            <th scope="col" style="padding-top:45px">{{item.quantity}}</th>
+            <th scope="col" style="padding-top:45px">{{item.price}}</th>
+            <th scope="col" style="padding-top:45px">{{item.CategoryID}}</th>
+
+            <button class="btn btn-warning" style="margin-top:45px" (click)="setUpdate(item.id!)">update</button>
+            <button class="btn btn-danger" style="margin-top:45px" (click)="deletee(item.id!)">delete</button>
+          </tr>
+        </tbody>
+      </table>
+</div>

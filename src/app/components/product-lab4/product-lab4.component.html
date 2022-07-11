@@ -1,0 +1,90 @@
+
+    <!-- enter id to search to product -->
+    <h4 class=" text-center alert text-dark col-12">enter number from 1 to 4</h4>
+    <input type="text" [(ngModel)]="id" (input)="showProduct()" class="form-control">
+    <table class="col-12" *ngIf="productCheck">
+        <tr>
+            <th>category</th>
+            <th>photo</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantitiy</th>
+        </tr>
+        <tr class="data" >
+           <td>{{product.CategoryID}}</td>
+           <td><img [src]="product.img" alt="image" class="productImg"></td>
+           <td>{{product.name}}</td>
+           <td>{{product.price}}</td>
+           <td>{{product.quantity}}</td>
+        </tr>
+    </table>
+
+    <!-- using category show  select -->
+    <h4 class=" text-center alert text-dark  col-12">select product of your category</h4>
+    <div class="col-12 categoryDiv">
+        <select name="categ" id="categ" (change)="selectProduct($event)" class="btn btn-danger">
+            <option>select</option>
+            <option value="0">all</option>
+            <option value="222">tv</option>
+            <option value="10702">mobile</option>
+            <option value="741">smartphone</option>
+            <option value="444">radio</option>
+        </select>
+        <table class="col-12" *ngIf="showTable">
+            <tr>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantitiy</th>
+            </tr>
+            <tr class="data" *ngFor="let item of productsCategory; let i=index" >
+                <td><img [src]="item.img" alt="image" class="productImg"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+                <td>
+                    <a href="/product/{{item.id}}" class="btn btn-primary">show</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- get data form service -->
+    <div class="col-12 categoryDiv">
+    <h4 class=" text-center alert text-dark  col-12">your cart</h4>
+
+        <select name="categ" id="categ" (change)="selectProductLab4($event)" class="btn btn-danger">
+            <option value="0">all</option>
+            <option value="222">tv</option>
+            <option value="10702">mobile</option>
+            <option value="741">smartphone</option>
+            <option value="444">radio</option>
+        </select>
+        <app-product-details-lab4 [categoryArrLab4]="ProductListLab4"  (categorySellectedLab4)="getChildDataLab4($event)"></app-product-details-lab4>
+    
+        <table class="col-12" *ngIf="buyed">
+            <p class="text-center alert-success col-12"> cart data</p>
+            <tr>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantitiy</th>
+                <th>total</th>
+            </tr>
+            <tr class="data" *ngFor="let item of paid_Data_From_ChildLab4; let i=index" >
+                <td><img [src]="item.img" alt="image" class="productImg"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.count}}</td>
+                <td> {{total[i]}}</td>
+            </tr> 
+        </table>
+    </div>
+
+    <div class="col-12">
+        <h3>
+            <span class="alert alert-success"> total price of cart</span>
+            <span> : {{totalPrice}}</span>
+        </h3>
+    </div>
+    

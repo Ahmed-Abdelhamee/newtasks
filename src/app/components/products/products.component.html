@@ -1,0 +1,194 @@
+<div class="col-12 globalDiv">
+    <p class="componentTitle">products works!</p>
+
+    <div class="col-12" >
+        <!-- show productlist data in table -->
+        <table class="col-12">
+            <tr>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantitiy</th>
+                <th>buy</th>
+            </tr>
+
+            <tr class="data" *ngFor="let item of ProductList; let i=index" >
+                <td *ngIf="!checkBuy && item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''"><img [src]="item.img" alt="image" class="productImg"></td>
+                <td *ngIf="!checkBuy && item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.name}}</td>
+                <td *ngIf="!checkBuy && item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.price}}</td>
+                <td *ngIf="!checkBuy && item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.quantity}}</td>
+                <td *ngIf="!checkBuy && item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">
+                    <button class="btn btn-info" (click)="buy()">buy</button>
+                    <button class="btn btn-dark" (click)="decrease(i)">decrease</button>
+                </td>
+            </tr>
+        </table>
+
+        <h3 class="alert alert-success col-12" *ngIf="checkBuy">“Thanks for purchasing from our Store” {{ClientName}} </h3>
+
+        <!-- show enum data  -->
+        <div class="col-12">
+            <h1> {{store.name}} </h1>
+            <img [src]="store.logo" alt="logo" width="150px">
+            <h3 *ngIf="discount.value1 !='No discount'">“We offer an explicit discount of : ” {{discount.value1}}</h3>
+            <h3>“We offer an explicit discount of : ” {{discount.value2}}</h3>
+            <h3>“We offer an explicit discount of : ” {{discount.value3}}</h3>
+        </div>
+
+    </div>
+
+
+    <!-- enter id to search to product -->
+    <h4 class=" text-center alert text-dark bg-warning col-12">enter number from 1 to 4</h4>
+    <input type="text" [(ngModel)]="id" (input)="showProduct()">
+
+    <table class="col-12" *ngIf="productCheck">
+        <tr>
+            <th>category</th>
+            <th>photo</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantitiy</th>
+        </tr>
+        <tr class="data" >
+           <td>{{product.CategoryID}}</td>
+           <td><img [src]="product.img" alt="image" class="productImg"></td>
+           <td>{{product.name}}</td>
+           <td>{{product.price}}</td>
+           <td>{{product.quantity}}</td>
+        </tr>
+    </table>
+
+
+    <!-- using category show -->
+    <div class="col-12 categoryDiv">
+        <h4 class=" text-center alert text-dark bg-warning col-12">select your category</h4>
+        <select name="categ" id="categ" (change)="selectProduct($event)" class="btn btn-danger">
+            <option value=""></option>
+            <option value="222">tv</option>
+            <option value="10702">mobile</option>
+            <option value="741">mobile</option>
+            <option value="444">radio</option>
+        </select>
+
+        <table class="col-12" *ngIf="showTable">
+            <tr>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>quantitiy</th>
+            </tr>
+            <tr class="data" *ngFor="let item of productsCategory; let i=index" >
+                <td ><img [src]="item.img" alt="image" class="productImg"></td>
+                <td >{{item.name}}</td>
+                <td >{{item.price}}</td>
+                <td >{{item.quantity}}</td>
+                <td >
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <!-- static divs -->
+    <div class="col-12 products">
+        
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>iphone X </p>
+                <p>there is no rate</p>
+                <p class="priceText">20,799 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>Huawei 2019 </p>
+                <p>there is no rate</p>
+                <p class="priceText">4.399 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>honor 8X </p>
+                <p>there is no rate</p>
+                <p class="priceText">4,888 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>Huawei nova 3i </p>
+                <p>there is no rate</p>
+                <p class="priceText">4,999 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        not available
+                        <i class="fa fa-shopping-bag bagIconBlack"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- binding -->
+    <div class="col-12">
+        <input type="text" name="personelID" id="personelID" [(ngModel)]="personalID">
+
+        <h3> personalID : {{ personalID }}</h3>
+        <h3> this user is born in : {{ personalID | getDate}}</h3>
+    
+        <input type="text" name="creaditCard" id="creaditCard" [(ngModel)]="creaditCard">
+    
+        <h3> your creaditCard is  : {{ creaditCard | creditCard }}</h3>
+        
+        <h1> Purchase date  : {{ date | date:"short"}}</h1>
+    
+    </div>
+
+    <div class="col-12">
+        red : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='red'">
+        yellow : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='yellow'">
+        green : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='green'">
+    
+        <div class="col-sm-3 productDiv" [setShadow]="color">
+            <img src="assets/smartphone.png" alt="image" class="productImg">
+            <p>Huawei 2019 </p>
+            <p>there is no rate</p>
+            <p class="priceText">4.399 LE</p>
+            <div class="btn-Add-Cart-Div">
+                <button class="btn btn-dark btnCart"> 
+                    add to cart 
+                    <i class="fa fa-shopping-bag bagIconWhite"></i>
+                </button>
+            </div>
+        </div>
+    
+    </div>
+    
+</div>
