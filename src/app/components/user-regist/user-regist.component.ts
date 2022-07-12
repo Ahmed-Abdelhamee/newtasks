@@ -55,6 +55,9 @@ export class UserRegistComponent implements OnInit {
   addNumber(){
     this.phone.push(this.fromBuilder.control(''))
   }
+  removeNumber(){
+    this.phone.removeAt(this.phone.length-1)
+  }
   submit(){
     console.log(this.regist.value)
     this.service.postUserData(this.regist.value)
