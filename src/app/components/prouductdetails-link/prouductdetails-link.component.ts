@@ -22,9 +22,7 @@ export class ProuductdetailsLinkComponent implements OnInit {
     this.product=this.service.getProductByID(this.productId);
   }
   getProductByID(value:number){
-    (value ==1) ? this.productId++ : this.productId--
-    (this.productId ==0) ? this.productId=1 : this.productId ;
-    (this.productId > this.productsarrayLength) ? this.productId= this.productsarrayLength : this.productId ;
+    (value >0) ? this.productId++ : this.productId--
     this.product=this.service.getProductByID(this.productId)
   }
 }

@@ -16,7 +16,6 @@ export class ProductLab4Component implements OnInit {
   productsCategory:Iproduct[]=[]
   
 // boolean variables for control the show
-  showTable:boolean=false
   checkBuy:boolean=false;
 
   // for show product using id
@@ -35,15 +34,17 @@ export class ProductLab4Component implements OnInit {
 
   ngOnInit(): void {
     this.ProductListLab4=this.service.ProductListLab4;
+    this.productsCategory=this.service.ProductListLab4;
   }
   // show product on enter id input
   showProduct(){
-    this.productCheck=true;
-    this.product=this.service.getProductByID(this.id)
+    if(this.id>0 && this.id<=4){
+      this.productCheck=true;
+      this.product=this.service.getProductByID(this.id)
+    }
   }
-  // show products on selecting category
+  // show products on selecting categoryID
   selectProduct(event:any){
-    this.showTable=true;
     this.productsCategory=this.service.getProductsByCatID(event);
   }
 
@@ -56,7 +57,7 @@ export class ProductLab4Component implements OnInit {
   getChildDataLab4(data:cart){
     this.buyed=true;  // for show data 
       this.paid_Data_From_ChildLab4=this.service.getpaidchildData(data,this.paid_Data_From_ChildLab4);
-    for(let i in this.paid_Data_From_ChildLab4){
+    for(let i in this.paid_Data_From_ChildLab4){//calc current price of product   
       this.total[i]=this.paid_Data_From_ChildLab4[i].count! * this.paid_Data_From_ChildLab4[i].price!
     }//calc total price of cart   
     this.totalPrice=0

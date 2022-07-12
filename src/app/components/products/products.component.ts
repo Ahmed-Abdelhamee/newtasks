@@ -20,7 +20,6 @@ export class ProductsComponent implements OnInit {
   creaditCard:any="";
   date=new Date()
   color:string="";
-  category:number=0;
 
 // arrays
   ProductList:Iproduct[]=[
@@ -36,7 +35,7 @@ export class ProductsComponent implements OnInit {
   checkBuy:boolean=false;
 
   // for show product using id
-  id:any="";
+  id:any=""; // binding variable
   productCheck:boolean=false;
   product:Iproduct={}
 
@@ -54,27 +53,12 @@ export class ProductsComponent implements OnInit {
 
   showProduct(){
     this.productCheck=true;
-    for(let i of this.ProductList){
-      if(i.id==this.id){
-        this.product.CategoryID=i.CategoryID;
-        this.product.img=i.img;
-        this.product.name=i.name;
-        this.product.price=i.price;
-        this.product.quantity=i.quantity;
-      }
-    }
+      this.product = this.ProductList.find(item=> this.id==item.id)!
   }
+  
   selectProduct(event:any){
     this.showTable=true;
     this.productsCategory=[]
-    this.category=event.target.value;
-    
-    for(let item of this.ProductList){
-      if(this.category==item.CategoryID){
-        this.productsCategory.push(item)
-      }
-    } 
-
+    this.productsCategory= this.ProductList.filter( arr => arr.CategoryID==event.target.value)
   }
-
 }

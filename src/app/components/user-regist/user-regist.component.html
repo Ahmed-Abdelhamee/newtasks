@@ -10,11 +10,12 @@
                 <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" [class.is-invalid]="email?.invalid && email?.touched && email?.errors?.['invalidname']">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter pass" formControlName="pass" [class.is-invalid]="pass?.invalid && pass?.touched">
+                <input type="password" class="form-control" placeholder="Enter pass" formControlName="pass" [class.is-invalid]="pass?.invalid && pass?.touched">
             </div>
             <div class="form-group" formArrayName="phone" *ngFor="let item of phone?.controls; let i=index">
-                <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="phone?.invalid && phone?.touched">
-                <span><button type="button" (click)=" addNumber()" class="btn btn-primary float-right" *ngIf="i==0"> add another number</button></span>
+                <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="item?.invalid && item?.touched">
+                <!-- <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="phone?.invalid && phone?.touched"> -->
+                <button type="button" (click)=" addNumber()" class="btn btn-primary float-right" *ngIf="(i+1)==phone.length"> add another number</button>
             </div>
 
             <div class="form-group" formGroupName="address">

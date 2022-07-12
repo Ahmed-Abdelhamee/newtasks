@@ -39,7 +39,7 @@
 
 
     <!-- enter id to search to product -->
-    <h4 class=" text-center alert text-dark bg-warning col-12">enter number from 1 to 4</h4>
+    <h4 class=" text-center alert text-dark bg-warning col-12">enter id from 1 to 4</h4>
     <input type="text" [(ngModel)]="id" (input)="showProduct()">
 
     <table class="col-12" *ngIf="productCheck">
@@ -172,9 +172,9 @@
     </div>
 
     <div class="col-12">
-        red : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='red'">
-        yellow : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='yellow'">
-        green : <input type="radio" name="color" style="margin-top: 20px;" (click)="color='green'">
+        <input type="radio" name="color" style="margin-top: 20px;" (click)="color='red'"> : red
+        <input type="radio" name="color" style="margin-top: 20px;" (click)="color='yellow'"> : yellow 
+        <input type="radio" name="color" style="margin-top: 20px;" (click)="color='green'"> : green
     
         <div class="col-sm-3 productDiv" [setShadow]="color">
             <img src="assets/smartphone.png" alt="image" class="productImg">

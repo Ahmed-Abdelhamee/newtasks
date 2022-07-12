@@ -27,59 +27,44 @@ export class ProductsServiceService {
   ]
 
   productsCategory:Iproduct[]=[]
-  
-  productsCategoryLab4:Iproduct[]=[]
+
 
   total:number[]=[]
 
-  getProductsByCatID(event:any): Iproduct [] {
-    this.productsCategory=[]
-    if(event.target.value==0){
-      this.productsCategory=this.ProductListLab4
-    }else{
-      for(let item of this.ProductList){
-        if(event.target.value==item.CategoryID){
-          this.productsCategory.push(item)
-        }
-      } 
-    }
-    return this.productsCategory
-  }
 
   getProductByID(prodID:any):Iproduct{
-    for(let i of this.ProductList){
-      if(i.id==prodID){
-        this.product.CategoryID=i.CategoryID;
-        this.product.img=i.img;
-        this.product.name=i.name;
-        this.product.price=i.price;
-        this.product.quantity=i.quantity;
-      }
-    }
-    return this.product
+    // for(let i of this.ProductList){
+    //   if(i.id==prodID){
+    //     this.product.CategoryID=i.CategoryID;
+    //     this.product.img=i.img;
+    //     this.product.name=i.name;
+    //     this.product.price=i.price;
+    //     this.product.quantity=i.quantity;
+    //   }
+    // }
+    return this.product =this.ProductList.find(item => item.id==prodID)!
   }
 
-  getProductDetails(array:Iproduct[]):Iproduct[]{
-    return array=this.ProductList
+  getProductsByCatID(event:any): Iproduct [] {
+    if(event.target.value==0){
+      return this.ProductListLab4
+    }else{
+      return this.ProductList.filter( item => item.CategoryID==event.target.value)
+    }
   }
+
 
   // data from parent to child
 selectProductLab4(event:any):Iproduct[]{
-  this.productsCategoryLab4=[]
   if(event.target.value==0){
-    return this.productsCategoryLab4=this.ProductList
+    return this.ProductListLab4
   }else{
-    for(let item of this.ProductList){
-      if(event.target.value==item.CategoryID){
-        this.productsCategoryLab4.push(item);
-      }
-    }
-    return this.productsCategoryLab4
+    return this.ProductListLab4.filter(item => item.CategoryID==event.target.value)
   }
 }
-// for return the array that updated or pushed 
+// for return the array that updated or pushed
 getpaidchildData(object:cart,arr:cart[]):any{
-  let paid_Data_From_ChildLab4:cart[]=arr
+  let paid_Data_From_ChildLab4:cart[]=arr;
   let exist=false;
   for(let i in paid_Data_From_ChildLab4){
     if(paid_Data_From_ChildLab4[i].id==object.id){
@@ -92,6 +77,8 @@ getpaidchildData(object:cart,arr:cart[]):any{
     paid_Data_From_ChildLab4.push(object)
     return paid_Data_From_ChildLab4
   }
+  // let exist=paid_Data_From_ChildLab4.find(item => item.id==object.id);
+  // return (exist !='undefined') ? paid_Data_From_ChildLab4.find(item => item.id==object.id) : paid_Data_From_ChildLab4.push(object)
 }
 
 }

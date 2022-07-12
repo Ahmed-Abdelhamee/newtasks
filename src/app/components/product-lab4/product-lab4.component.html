@@ -1,6 +1,6 @@
 
     <!-- enter id to search to product -->
-    <h4 class=" text-center alert text-dark col-12">enter number from 1 to 4</h4>
+    <h4 class=" text-center alert text-dark col-12">enter id from 1 to 4</h4>
     <input type="text" [(ngModel)]="id" (input)="showProduct()" class="form-control">
     <table class="col-12" *ngIf="productCheck">
         <tr>
@@ -30,7 +30,7 @@
             <option value="741">smartphone</option>
             <option value="444">radio</option>
         </select>
-        <table class="col-12" *ngIf="showTable">
+        <table class="col-12">
             <tr>
                 <th>photo</th>
                 <th>name</th>
@@ -63,7 +63,7 @@
         <app-product-details-lab4 [categoryArrLab4]="ProductListLab4"  (categorySellectedLab4)="getChildDataLab4($event)"></app-product-details-lab4>
     
         <table class="col-12" *ngIf="buyed">
-            <p class="text-center alert-success col-12"> cart data</p>
+            <h2 class="text-center alert-success col-12"> cart data</h2>
             <tr>
                 <th>photo</th>
                 <th>name</th>
@@ -86,5 +86,6 @@
             <span class="alert alert-success"> total price of cart</span>
             <span> : {{totalPrice}}</span>
         </h3>
+        <br>
     </div>
     

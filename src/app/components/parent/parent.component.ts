@@ -38,15 +38,10 @@ export class ParentComponent implements OnInit {
   // data from parent to child
   selectProduct(event:any){
     this.productsCategory=[];
-    this.index=0;
     if(event.target.value==0){
       this.productsCategory=this.ProductList
-    }else{ // forloop to check the selected category and push object selected
-      for(let item of this.ProductList){
-        if(event.target.value==item.CategoryID){
-          this.productsCategory.push(item)
-        }
-      }
+    }else{
+      this.productsCategory.push(this.ProductList.find(item => item.CategoryID==event.target.value)!)
     }
   }
   

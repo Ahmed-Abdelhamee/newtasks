@@ -13,7 +13,6 @@ export class ChildComponent implements OnInit {
   constructor(private formBuilder:FormBuilder) { }
 
   @Input() categoryArr:cart[]=[] ;
-  @Input() ifSelect:number=0;
 
   @Output() public categorySellected=new EventEmitter();
 
@@ -24,21 +23,23 @@ export class ChildComponent implements OnInit {
    })
 
    setProductIndexForChange:number=0;
+   
+   quantityInput:number[]=[]
 
    changed:boolean=false;
 
-   
-
   ngOnInit(): void {
+    for(let item in this.categoryArr){ this.quantityInput.push(0) }
   }
 
   
-  makeChange(i:number){
+  makeChange(i:number,event:any){
     this.changed=true;
     this.setProductIndexForChange=i;
+    this.quantityInput[i]=event.target.value
   }
   buy(index:number){
-    if(index==this.setProductIndexForChange && this.changed){
+    if(index==this.setProductIndexForChange && this.changed && this.categoryArr[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]){
       this.arr=this.categoryArr[index]
       this.arr.count=this.formCount.get("count")?.value!
       this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
@@ -46,5 +47,4 @@ export class ChildComponent implements OnInit {
       this.changed=false;
     }
   }
-  
 }

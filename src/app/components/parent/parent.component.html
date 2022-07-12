@@ -5,18 +5,19 @@
         <option value="222">tv</option>
         <option value="10702">mobile</option>
         <option value="444">radio</option>
+        <option value="555">smart phone</option>
     </select>
 
 
     <app-child class="col-12" [categoryArr]="productsCategory"  (categorySellected)="getChildData($event)"></app-child>
 
     <table class="col-12" *ngIf="buyed">
-        <p class="text-center alert-success"> cart data</p>
+        <h2 class="text-center alert-success"> cart data</h2>
         <tr>
             <th>photo</th>
             <th>name</th>
             <th>price</th>
-            <th>count</th>
+            <th>quantity</th>
             <th>total</th>
         </tr>
         <tr class="data" *ngFor="let item of paid_Data_From_Child; let i=index" >
