@@ -40,6 +40,7 @@ export class ChildComponent implements OnInit {
   }
   buy(index:number){
     if(index==this.setProductIndexForChange && this.changed && this.categoryArr[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]){
+      this.arr.quantity=this.categoryArr[index].quantity!+this.arr.count!
       this.arr=this.categoryArr[index]
       this.arr.count=this.formCount.get("count")?.value!
       this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!

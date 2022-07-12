@@ -15,7 +15,8 @@
             <td>{{item.quantity}}</td>
             <td>
                 <form [formGroup]="formCount">
-                    <input type="number" class="form-control" name="count" formControlName="count" (input)="makeChange(i)">
+                    <input type="number" class="form-control" name="count" formControlName="count" (input)="makeChange(i,$event)">
+                    <small class="text-danger" *ngIf="quantityInput[i] > item.quantity!"> the quantity  not allowed</small>
                 </form>
             </td>
             <td>

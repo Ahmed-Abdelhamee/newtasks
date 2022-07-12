@@ -33,15 +33,6 @@ export class ProductsServiceService {
 
 
   getProductByID(prodID:any):Iproduct{
-    // for(let i of this.ProductList){
-    //   if(i.id==prodID){
-    //     this.product.CategoryID=i.CategoryID;
-    //     this.product.img=i.img;
-    //     this.product.name=i.name;
-    //     this.product.price=i.price;
-    //     this.product.quantity=i.quantity;
-    //   }
-    // }
     return this.product =this.ProductList.find(item => item.id==prodID)!
   }
 
@@ -52,33 +43,29 @@ export class ProductsServiceService {
       return this.ProductList.filter( item => item.CategoryID==event.target.value)
     }
   }
-
-
   // data from parent to child
-selectProductLab4(event:any):Iproduct[]{
-  if(event.target.value==0){
-    return this.ProductListLab4
-  }else{
-    return this.ProductListLab4.filter(item => item.CategoryID==event.target.value)
-  }
-}
-// for return the array that updated or pushed
-getpaidchildData(object:cart,arr:cart[]):any{
-  let paid_Data_From_ChildLab4:cart[]=arr;
-  let exist=false;
-  for(let i in paid_Data_From_ChildLab4){
-    if(paid_Data_From_ChildLab4[i].id==object.id){
-      paid_Data_From_ChildLab4[i].count=object.count;
-      exist=true;
-      return paid_Data_From_ChildLab4;
+  selectProductLab4(event:any):Iproduct[]{
+    if(event.target.value==0){
+      return this.ProductListLab4
+    }else{
+      return this.ProductListLab4.filter(item => item.CategoryID==event.target.value)
     }
   }
-  if(exist){}else{
-    paid_Data_From_ChildLab4.push(object)
-    return paid_Data_From_ChildLab4
+  // for return the array that updated or pushed
+  getpaidchildData(object:cart,arr:cart[]):any{
+    let paid_Data_From_ChildLab4:cart[]=arr;
+    let exist=false;
+    // for update the buy array
+    for(let i in paid_Data_From_ChildLab4){
+      if(paid_Data_From_ChildLab4[i].id==object.id){
+        paid_Data_From_ChildLab4[i].count=object.count;
+        exist=true;
+        return paid_Data_From_ChildLab4;
+      }
+    }// for push paid data array
+    if(exist){}else{
+      paid_Data_From_ChildLab4.push(object)
+      return paid_Data_From_ChildLab4
+    }
   }
-  // let exist=paid_Data_From_ChildLab4.find(item => item.id==object.id);
-  // return (exist !='undefined') ? paid_Data_From_ChildLab4.find(item => item.id==object.id) : paid_Data_From_ChildLab4.push(object)
-}
-
 }

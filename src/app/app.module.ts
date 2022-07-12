@@ -23,7 +23,8 @@ import { ProuductdetailsLinkComponent } from './components/prouductdetails-link/
 import { Day5Component } from './components/day5/day5.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserRegistComponent } from './components/user-regist/user-regist.component';
-import { NewProductComponent } from './components/new-product/new-product.component'
+import { NewProductComponent } from './components/new-product/new-product.component';
+import { CurrencyPipe } from './pips/currency.pipe'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     ProuductdetailsLinkComponent,
     Day5Component,
     UserRegistComponent,
-    NewProductComponent
+    NewProductComponent,
+    CurrencyPipe
 
   ],
   imports: [

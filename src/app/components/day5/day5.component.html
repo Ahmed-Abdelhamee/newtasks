@@ -48,12 +48,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of categorys">
-            <th scope="col"><img src="{{item.img}}" alt="img" width="150px" height="100px"></th>
-            <th scope="col" style="padding-top:45px">{{item.id}}</th>
-            <th scope="col" style="padding-top:45px">{{item.name}}</th>
-            <th scope="col" style="padding-top:45px">{{item.quantity}}</th>
-            <th scope="col" style="padding-top:45px">{{item.price}}</th>
-            <th scope="col" style="padding-top:45px">{{item.CategoryID}}</th>
+            <td scope="col"><img src="{{item.img}}" alt="img" width="150px" height="100px"></td>
+            <td scope="col" style="padding-top:45px">{{item.id}}</td>
+            <td scope="col" style="padding-top:45px">{{item.name}}</td>
+            <td scope="col" style="padding-top:45px">{{item.quantity}}</td>
+            <td scope="col" style="padding-top:45px">{{item.price! | currency}}</td>
+            <td scope="col" style="padding-top:45px">{{item.CategoryID}}</td>
           </tr>
         </tbody>
       </table>
