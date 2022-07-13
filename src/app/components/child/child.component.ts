@@ -36,16 +36,25 @@ export class ChildComponent implements OnInit {
   makeChange(i:number,event:any){
     this.changed=true;
     this.setProductIndexForChange=i;
-    this.quantityInput[i]=event.target.value
+    this.quantityInput[i]=event.target.value;
   }
   buy(index:number){
-    if(index==this.setProductIndexForChange && this.changed && this.categoryArr[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]){
-      this.arr.quantity=this.categoryArr[index].quantity!+this.arr.count!
-      this.arr=this.categoryArr[index]
-      this.arr.count=this.formCount.get("count")?.value!
-      this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
+    if(index==this.setProductIndexForChange && this.changed
+       && this.categoryArr[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]
+       && this.quantityInput[this.setProductIndexForChange]>0){
+      if(this.arr.id==this.categoryArr[index].id){
+        this.arr.quantity=this.categoryArr[index].quantity!+this.arr.count!
+        this.arr=this.categoryArr[index]
+        this.arr.count=this.formCount.get("count")?.value!
+        this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
+      }else{
+        this.arr=this.categoryArr[index]
+        this.arr.count=this.formCount.get("count")?.value!
+        this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
+      }
       this.categorySellected.emit(this.arr);
       this.changed=false;
     }
+    console.log(this.categoryArr)
   }
 }

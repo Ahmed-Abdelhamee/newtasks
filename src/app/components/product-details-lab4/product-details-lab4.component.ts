@@ -38,11 +38,19 @@ export class ProductDetailsLab4Component implements OnInit {
     this.quantityInput[i]=event.target.value
   }
   buy(index:number){
-    if(index==this.setProductIndexForChange && this.buyed && this.categoryArrLab4[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]){
-      this.arr.quantity=this.categoryArrLab4[index].quantity!+this.arr.count!
-      this.arr=this.categoryArrLab4[index]
-      this.arr.count=this.formCount.get("count")?.value!
-      this.arr.quantity = this.categoryArrLab4[index].quantity!-this.arr.count!
+    if(index==this.setProductIndexForChange && this.buyed
+       && this.categoryArrLab4[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange] 
+       && this.quantityInput[this.setProductIndexForChange]>0){
+      if(this.arr.id==this.categoryArrLab4[index].id){
+        this.arr.quantity=this.categoryArrLab4[index].quantity!+this.arr.count!
+        this.arr=this.categoryArrLab4[index]
+        this.arr.count=this.formCount.get("count")?.value!
+        this.arr.quantity = this.categoryArrLab4[index].quantity!-this.arr.count!
+      }else{
+        this.arr=this.categoryArrLab4[index]
+        this.arr.count=this.formCount.get("count")?.value!
+        this.arr.quantity = this.categoryArrLab4[index].quantity!-this.arr.count!
+      }
       this.categorySellectedLab4.emit(this.arr);
       this.buyed=false
     }

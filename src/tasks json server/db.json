@@ -32,17 +32,16 @@
       "quantity": 1,
       "price": 4000,
       "img": "assets/smartphone.png",
-      "CategoryID": 555,
+      "CategoryID": 10702,
       "count": 2
     },
     {
-      "id": 5,
       "name": "redio",
-      "quantity": 10,
-      "price": 500,
-      "img": "assets/radio.png",
+      "img": "assets/radio2.jpg",
       "CategoryID": 444,
-      "count": 5
+      "price": "700",
+      "quantity": "5",
+      "id": 5
     },
     {
       "name": "gmail",

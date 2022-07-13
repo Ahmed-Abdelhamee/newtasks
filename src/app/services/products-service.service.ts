@@ -21,7 +21,7 @@ export class ProductsServiceService {
   // array for lab 4
   ProductListLab4:Iproduct[]=[
     {id:1,name:"iphone",quantity:41, price:14500, img:"assets/iphone.png",CategoryID:10702,},
-    {id:2,name:"redio",quantity:0, price:500, img:"assets/radio.png",CategoryID:444,},
+    {id:2,name:"redio",quantity:10, price:500, img:"assets/radio.png",CategoryID:444,},
     {id:3,name:"TV",quantity:70, price:10500, img:"assets/tv.png",CategoryID:222,},
     {id:4,name:"smartphone",quantity:1, price:10500, img:"assets/smartphone.png",CategoryID:741,},
   ]
