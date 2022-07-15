@@ -45,8 +45,11 @@ ngOnInit(): void {
 buy(){
   this.checkBuy=true
 }
-decrease(index:number){
-  this.ProductList[index].quantity! --
+decrease(id:number){
+  for(let item of this.ProductList)
+  if(item.id==id){
+    item.quantity! --
+  }
 }
 
 showProduct(){

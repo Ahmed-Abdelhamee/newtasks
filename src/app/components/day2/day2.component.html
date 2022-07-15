@@ -48,7 +48,7 @@
                     <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.price! | currency }}</td>
                     <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.quantity}}</td>
                     <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">
-                        <button class="btn btn-info" (click)="decrease(i)">buy</button>
+                        <button class="btn btn-info" (click)="decrease(item.id!)">buy</button>
                     </td>
                 </tr>
             </table>
