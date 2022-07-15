@@ -23,6 +23,7 @@ export class ProductLab4Component implements OnInit {
   productCheck:boolean=false;
   product:Iproduct={}
   buyed:boolean=false
+  count:number[]=[]; // array to show the count in each product
 
   constructor(private service:ProductsServiceService) { }
   // for lab 4
@@ -56,13 +57,24 @@ export class ProductLab4Component implements OnInit {
   // data from child to parent
   getChildDataLab4(data:cart){
     this.buyed=true;  // for show data 
-      this.paid_Data_From_ChildLab4=this.service.getpaidchildData(data,this.paid_Data_From_ChildLab4);
-    for(let i in this.paid_Data_From_ChildLab4){//calc current price of product   
-      this.total[i]=this.paid_Data_From_ChildLab4[i].count! * this.paid_Data_From_ChildLab4[i].price!
-    }//calc total price of cart   
+
+    this.paid_Data_From_ChildLab4.push(data)
+    this.total.push(this.paid_Data_From_ChildLab4[this.paid_Data_From_ChildLab4.length-1].count! * this.paid_Data_From_ChildLab4[this.paid_Data_From_ChildLab4.length-1].price!)
+    this.count.push(data.count!)
+  //calc total price of cart   
     this.totalPrice=0
     for(let i of this.total){
       this.totalPrice += i;
     }
+
+
+    //   this.paid_Data_From_ChildLab4=this.service.getpaidchildData(data,this.paid_Data_From_ChildLab4);
+    // for(let i in this.paid_Data_From_ChildLab4){//calc current price of product   
+    //   this.total[i]=this.paid_Data_From_ChildLab4[i].count! * this.paid_Data_From_ChildLab4[i].price!
+    // }//calc total price of cart   
+    // this.totalPrice=0
+    // for(let i of this.total){
+    //   this.totalPrice += i;
+    // }
   }
 }

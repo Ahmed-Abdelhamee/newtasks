@@ -1,7 +1,9 @@
 [class*="col-"]{
     float: left;
 }
-
+.col-12{
+    padding: 30px 40px;
+}
 .title{
     font-size: 25px;
     font-weight: bold;
@@ -12,7 +14,7 @@
 
 .card{
     padding: 15px;
-    margin: 20px 0px;
+    // margin: 20px 0px;
 }
 
 input{

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { Day2Component } from './components/day2/day2.component';
 import { Day5Component } from './components/day5/day5.component';
 import { Error404Component } from './components/error404/error404.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +15,7 @@ import { UserRegistComponent } from './components/user-regist/user-regist.compon
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"home",component:HomeComponent},
+  {path:"day2",component:Day2Component},
   {path:"about-us",component:AboutUsComponent},
   {path:"contact-us",component:ContactUsComponent},
   {path:"parent",component:ParentComponent},

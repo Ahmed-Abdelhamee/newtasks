@@ -1,0 +1,161 @@
+<div class="col-12 container">
+
+    <!-- enter id to search to product -->
+    <div class="col-12">
+        <h4 class=" text-center alert text-light col-sm-4">Enter ID from 1 to 4 : </h4>
+        <input type="text" class="form-control" [(ngModel)]="id" (input)="showProduct()">
+        <div class="card" *ngIf="productCheck">
+            <table class="col-12">
+                <tr>
+                    <th>category</th>
+                    <th>photo</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>quantitiy</th>
+                </tr>
+                <tr class="data" >
+                <td>{{product.CategoryID}}</td>
+                <td><img [src]="product.img" alt="image" class="productImg"></td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- using category show -->
+    <div class="col-12 categoryDiv">
+        <h4 class=" text-center text-light">select your category</h4>
+        <select name="categ" id="categ" [(ngModel)]="valueChange" (change)="selectProduct($event)" class="btn btn-danger">
+            <option value="0">all</option>
+            <option value="222">tv</option>
+            <option value="10702">mobile</option>
+            <option value="444">radio</option>
+        </select>
+
+        <div class="card" *ngIf="showTable">
+            <table class="col-12 ">
+                <tr>
+                    <th>photo</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>quantitiy</th>
+                </tr>
+                <tr class="data" *ngFor="let item of productsCategory; let i=index" >
+                    <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''"><img [src]="item.img" alt="image" class="productImg"></td>
+                    <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.name}}</td>
+                    <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.price! | currency }}</td>
+                    <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">{{item.quantity}}</td>
+                    <td *ngIf="item.quantity !=0" [ngStyle]="(item.quantity ==1) ? checkQuantity :''">
+                        <button class="btn btn-info" (click)="decrease(i)">buy</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+
+   
+    <!-- binding data -->
+    <div class="col-12">
+        <div class="card">
+
+            <input type="text" class="form-control" name="personelID" id="personelID" [(ngModel)]="personalID">
+
+            <h3> personal ID : {{ personalID }}</h3>
+            <h3> this user is born in : {{ personalID | getDate}}</h3>
+            <br>
+            <input type="text" class="form-control" placeholder="enter card number" name="creaditCard" id="creaditCard" [(ngModel)]="creaditCard">
+        
+            <h3> your creaditCard is  : {{ creaditCard | creditCard }}</h3>
+            <br>
+            <h1> Purchase date  : {{ date | date:"short"}}</h1>
+        
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="col-sm-12">
+            <input type="radio" name="color" style="margin-top: 20px;" (click)="color='red'"> : red
+            <input type="radio" name="color" style="margin-top: 20px;" (click)="color='yellow'"> : yellow 
+            <input type="radio" name="color" style="margin-top: 20px;" (click)="color='green'"> : green
+        </div>
+        <div class="col-sm-3 productDiv" [setShadow]="color">
+            <img src="assets/smartphone.png" alt="image" class="productImg">
+            <p>Huawei 2019 </p>
+            <p>there is no rate</p>
+            <p class="priceText">4.399 LE</p>
+            <div class="btn-Add-Cart-Div">
+                <button class="btn btn-dark btnCart"> 
+                    add to cart 
+                    <i class="fa fa-shopping-bag bagIconWhite"></i>
+                </button>
+            </div>
+        </div>
+    
+    </div>
+    
+
+     <!-- static divs  Bouns Question-->
+     <div class="col-12 staticProducts">
+        <h1>bonus divs</h1>
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>iphone X </p>
+                <p>there is no rate</p>
+                <p class="priceText">20,799 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>Huawei 2019 </p>
+                <p>there is no rate</p>
+                <p class="priceText">4.399 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>honor 8X </p>
+                <p>there is no rate</p>
+                <p class="priceText">4,888 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        add to cart 
+                        <i class="fa fa-shopping-bag bagIconWhite"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 productDiv">
+            <div class="card">
+                <img src="assets/smartphone.png" alt="image" class="productImg">
+                <p>Huawei nova 3i </p>
+                <p>there is no rate</p>
+                <p class="priceText">4,999 LE</p>
+                <div class="btn-Add-Cart-Div">
+                    <button class="btn btn-dark btnCart"> 
+                        not available
+                        <i class="fa fa-shopping-bag bagIconBlack"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

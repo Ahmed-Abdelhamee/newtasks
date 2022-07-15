@@ -17,7 +17,10 @@
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact :true}">
-          <a class="nav-link" routerLink="">lab_1,2</a>
+          <a class="nav-link" routerLink="">lab_1</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link" routerLink="/day2">lab_2</a>
         </li>
         <li class="nav-item" [routerLinkActive]="'active'">
           <a class="nav-link" routerLink="/parent">lab3</a>
@@ -39,15 +42,19 @@
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
+        
         <div class="carousel-item active">
-          <img src="assets/shopping banner.jpg" alt="image" class="bannerPhoto">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/shopping banner2.jpg" alt="image" class="bannerPhoto">
-        </div>
-        <div class="carousel-item">
           <img src="assets/shopping banner3.jpg" alt="image" class="bannerPhoto">
         </div>
+
+        <div class="carousel-item">
+          <img src="assets/shopping banner.png" alt="image" class="bannerPhoto">
+        </div>
+        
+        <div class="carousel-item">
+          <img src="assets/shopping banner2.png" alt="image" class="bannerPhoto">
+        </div>
+        
       </div>
     </div>
 

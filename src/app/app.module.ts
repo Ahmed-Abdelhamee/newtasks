@@ -24,7 +24,8 @@ import { Day5Component } from './components/day5/day5.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserRegistComponent } from './components/user-regist/user-regist.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
-import { CurrencyPipe } from './pips/currency.pipe'
+import { CurrencyEgPipe } from './pips/currencyEg.pipe';
+import { Day2Component } from './components/day2/day2.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CurrencyPipe } from './pips/currency.pipe'
     Day5Component,
     UserRegistComponent,
     NewProductComponent,
-    CurrencyPipe
+    CurrencyEgPipe,
+    Day2Component
 
   ],
   imports: [

@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'currency'
 })
-export class CurrencyPipe implements PipeTransform {
+export class CurrencyEgPipe implements PipeTransform {
 
   transform(data:number): any {
     return data + " LE";

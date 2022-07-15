@@ -2,10 +2,12 @@
     float: left;
 }
 .col-12{
+    // background-color: rgb(43, 151, 151);
+    background-image: linear-gradient(120deg, #cacfd4, rgb(105, 179, 204));
     text-align: center;
-    padding: 20px;
-    // background-color: lightgray;
-    background-image: linear-gradient(120deg, #eaf0f7, rgb(119, 184, 206));
+    padding: 40px 20px;
+    // color: rgb(50, 23, 23);
+    color: white;
 }
 .data{
     margin-bottom: 20px;
@@ -13,38 +15,49 @@
 .data p{
     font-size: 18px;
     text-align: left;
-    font-weight: 700;
+    font-weight: 800;
     padding-left: 25px;
+}
+.data td{
+    font-size: 18px;
+    font-weight: 700;
 }
 .data .productImg{
     width: 250px;
     height: 200px;
     margin: 20px 0px;
 }
+.card{
+    padding: 10px;
+    width: 100%;
+    background: none;
+    box-shadow: inset 0px -4px 10px white;
+}
 .componentTitle{
     text-align: center;
 }
-.globalDiv{
-    padding: 20px 0px;
-}
-.products{
-    margin-top: 100px;
-}
-.productDiv{
-    padding: 25px 15px;
-}
-.productDiv p{
-    line-height: 15px;
-    text-align: left;
-    font-weight: 600;
+
+input[type="text"]{
+    width: 40%;
+    margin: 10px 30%;
 }
 
 .categoryDiv{
-    padding-top: 15px;
-    margin-bottom: 50px;
-    box-shadow: inset 0px 4px 15px white;
+    margin-top: 40px;
 }
 
+.staticProducts{
+    margin-top: 100px;
+}
+.productDiv{
+    padding: 5px;
+    background: none;
+}
+.productDiv p{
+    line-height: 15px;
+    text-align: center;
+    font-weight: 600;
+}
 .priceText{
     color: red;
 }
@@ -52,16 +65,6 @@
     width: 100%;
     height: 250px;
     margin: 20px 0px;
-}
-.card{
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-}
-.card img{
-    height: 200px;
-}
-.card2{
 }
 .btn-Add-Cart-Div{
     padding: 5px 25px;
@@ -83,9 +86,4 @@
 }
 .btn-danger{
     margin-bottom: 25px;
-}
-input[type="text"]{
-    width: 50%;
-    margin-left: 25%;
-    margin-bottom: 30px;
 }

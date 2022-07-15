@@ -5,13 +5,34 @@
         <option value="222">tv</option>
         <option value="10702">mobile</option>
         <option value="444">radio</option>
-        <option value="555">smart phone</option>
     </select>
-
 
     <app-child class="col-12" [categoryArr]="productsCategory"  (categorySellected)="getChildData($event)"></app-child>
 
-    <table class="col-12" *ngIf="buyed">
+    <div class="col-12" *ngIf="buyed">
+        <h3 class="text-center alert alert-secondary"> your cart</h3>
+        <div class="col-sm-3" *ngFor="let item of paid_Data_From_Child; let i=index" >
+            <div class="card text-center">
+                <img class="card-img-top" [src]="item.img" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text"> price : {{item.price! | currency}}</p>
+                  <p class="card-text">quantity : {{count[i]}}</p>
+                  <button class="btn btn-info">total price : {{total[i] | currency}}</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+     <div class="col-12">
+        <h3 class="text-center">
+            <span class="alert alert-success"> total price of cart</span>
+            <span> : {{totalPrice}}</span>
+        </h3>
+    </div>
+    
+
+        <!-- <table class="col-12" *ngIf="buyed">
         <h2 class="text-center alert-success"> cart data</h2>
         <tr>
             <th>photo</th>
@@ -27,14 +48,7 @@
             <td>{{item.count}}</td>
             <td> {{result[i]}}</td>
         </tr> 
-    </table>
-    
-    <div class="col-12">
-        <h3>
-            <span class="alert alert-success"> total price of cart</span>
-            <span> : {{totalPrice}}</span>
-        </h3>
-    </div>
-    
+    </table>  -->
+
 </div>
 

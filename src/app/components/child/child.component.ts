@@ -42,19 +42,29 @@ export class ChildComponent implements OnInit {
     if(index==this.setProductIndexForChange && this.changed
        && this.categoryArr[this.setProductIndexForChange].quantity! >= this.quantityInput[this.setProductIndexForChange]
        && this.quantityInput[this.setProductIndexForChange]>0){
-      if(this.arr.id==this.categoryArr[index].id){
-        this.arr.quantity=this.categoryArr[index].quantity!+this.arr.count!
-        this.arr=this.categoryArr[index]
-        this.arr.count=this.formCount.get("count")?.value!
-        this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
-      }else{
-        this.arr=this.categoryArr[index]
-        this.arr.count=this.formCount.get("count")?.value!
-        this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
-      }
+  
+      this.arr=this.categoryArr[index]
+      this.arr.count=this.formCount.get("count")?.value!
+      this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
       this.categorySellected.emit(this.arr);
       this.changed=false;
+
+
+
+
+
+
+    // important code
+      // if(this.arr.id==this.categoryArr[index].id){
+      //   this.arr.quantity=this.categoryArr[index].quantity!+this.arr.count!
+      //   this.arr=this.categoryArr[index]
+      //   this.arr.count=this.formCount.get("count")?.value!
+      //   this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
+      // }else{
+      //   this.arr=this.categoryArr[index]
+      //   this.arr.count=this.formCount.get("count")?.value!
+      //   this.arr.quantity=this.categoryArr[index].quantity!-this.arr.count!
+      // }
     }
-    console.log(this.categoryArr)
   }
 }
