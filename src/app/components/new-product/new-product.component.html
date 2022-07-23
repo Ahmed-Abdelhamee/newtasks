@@ -6,8 +6,17 @@
         <form #f="ngForm" [formGroup]="product" (ngSubmit)="submit(f)" class="card" novalidate>
             <p class="title">New Product</p>
             <input type="text" placeholder="Enter product name" class="form-control" formControlName="name">
-            <input type="text" placeholder="Enter price" class="form-control" formControlName="price">
-            <input type="text" placeholder="Enter category" class="form-control" formControlName="CategoryID">
+            <input type="number" placeholder="Enter price" class="form-control" formControlName="price">
+            <!-- <input type="text" placeholder="Enter category" class="form-control" formControlName="CategoryID"> -->
+              <select name="categ" id="categ" formControlName="CategoryID" class="form-control mb-3">
+            
+                  <option selected disabled hidden value="select" >select </option>
+                  <option value="222">TV</option>
+                  <option value="10702">Mobile</option>
+                  <option value="444">Radio</option>
+
+              </select>
+
             <input type="text" placeholder="Enter quantity" class="form-control" formControlName="quantity">
             <input type="file" placeholder="upload" class="form-control" (change)="uploadFile($event)">
             <input type="submit" [class]="!btnUpdate ? 'btn btn-info' : 'btn btn-warning' " [value]="!btnUpdate ? 'new product' : 'update'" >
@@ -36,7 +45,7 @@
             <th scope="col" style="padding-top:45px">{{item.id}}</th>
             <th scope="col" style="padding-top:45px">{{item.name}}</th>
             <th scope="col" style="padding-top:45px">{{item.quantity}}</th>
-            <th scope="col" style="padding-top:45px">{{item.price}}</th>
+            <th scope="col" style="padding-top:45px">{{item.price! | currency}}</th>
             <th scope="col" style="padding-top:45px">{{item.CategoryID}}</th>
 
             <button class="btn btn-warning" style="margin-top:45px" (click)="setUpdate(item.id!)">update</button>

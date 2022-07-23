@@ -24,13 +24,12 @@ export class NewProductComponent implements OnInit {
   product=this.formBuilder.group({
     name:["", Validators.required],
     img:["", Validators.required],
-    CategoryID:[, Validators.required],
+    CategoryID:["select", Validators.required],
     price:[, Validators.required],
     quantity:[, Validators.required],
   })
 
   products:Iproduct[]=[]
-
   btnUpdate:boolean=false
   updateid:number=0
 

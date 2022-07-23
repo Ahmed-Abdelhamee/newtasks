@@ -59,7 +59,7 @@ export class UserRegistComponent implements OnInit {
     this.phone.removeAt(this.phone.length-1)
   }
   submit(){
-    console.log(this.regist.value)
-    this.service.postUserData(this.regist.value)
+      console.log(this.regist.value)
+      this.service.postUserData(this.regist.value)
   }
 }

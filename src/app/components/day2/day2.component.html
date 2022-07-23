@@ -28,10 +28,12 @@
     <div class="col-12 categoryDiv">
         <h4 class=" text-center text-light">select your category</h4>
         <select name="categ" id="categ" [(ngModel)]="valueChange" (change)="selectProduct($event)" class="btn btn-danger">
-            <option value="0">all</option>
-            <option value="222">tv</option>
-            <option value="10702">mobile</option>
-            <option value="444">radio</option>
+       
+            <option selected disabled hidden >select </option>
+            <option value="0">All</option>
+            <option value="222">TV</option>
+            <option value="10702">Mobile</option>
+            <option value="444">Radio</option>
         </select>
 
         <div class="card" *ngIf="showTable">

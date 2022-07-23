@@ -35,13 +35,13 @@ export class Day5Component implements OnInit {
   // get products by frist letter in category name
     let CategoryId=0;
     for(let item of this.categories){
-      if(item.name[0]==event.target.value){
+      if(item.name==event.target.value){
         CategoryId=item.id;
         this.categorys=this.products.filter(item => item.CategoryID==CategoryId)
         this.checkCateg=true
       }
     }
-    
+
   // get products by in category name
     // for(let item of this.categories){
     //   if(item.name==event.target.value){

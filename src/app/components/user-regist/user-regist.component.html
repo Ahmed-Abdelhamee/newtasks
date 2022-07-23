@@ -1,19 +1,19 @@
 <div class="col-12">
     <div class="col-sm-3" style="height: 1px;"></div>
     <div class="col-sm-5 card">
-        <form class="from-validation" [formGroup]="regist" (ngSubmit)="submit()" validators>
+        <form class="from-validation" [formGroup]="regist" (ngSubmit)="submit()"  novalidate>
             <h2 class="title">register</h2>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" [class.is-invalid]="name?.invalid && name?.touched">
+                <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" [class.is-invalid]="name?.invalid && name?.touched || name?.errors?.['invalidname']">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" [class.is-invalid]="email?.invalid && email?.touched && email?.errors?.['invalidname']">
+                <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" email [class.is-invalid]="email?.invalid && email?.touched ">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="Enter pass" formControlName="pass" [class.is-invalid]="pass?.invalid && pass?.touched">
             </div>
             <div class="form-group" formArrayName="phone" *ngFor="let item of phone?.controls; let i=index">
-                <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="item?.invalid && item?.touched">
+                <input type="number" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="item?.invalid && item?.touched">
                 <!-- <input type="text" class="form-control additionalPhone" placeholder="Enter Phone" [formControlName]="i"  [class.is-invalid]="phone?.invalid && phone?.touched"> -->
                 <button type="button" (click)=" addNumber()" class="btn btn-primary float-right" *ngIf="(i+1)==phone.length"> add another number</button>
                 <button type="button" (click)=" removeNumber()" class="btn btn-danger float-right" *ngIf="(i+1)==phone.length && i!=0"> remove number</button>

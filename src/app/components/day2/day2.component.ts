@@ -11,11 +11,11 @@ export class Day2Component implements OnInit {
 // binding data 
 ClientName:string=" sir ahmmed";
 checkQuantity:any={background:'yellow', color:'black'};
-personalID:any="29902182601392";
-creaditCard:any="";
+personalID:any="29905242645592";
+creaditCard:any="4242424242424242";
 date=new Date()
 color:string="";
-valueChange:any
+valueChange:any="select"
 
 // arrays
 ProductList:Iproduct[]=[]
@@ -53,8 +53,8 @@ decrease(id:number){
 }
 
 showProduct(){
-  if(this.id>0 && this.id<=4){
-    this.product = this.ProductList.find(item=> this.id==item.id)!
+  if(this.id>0 && this.id <= 4){
+    this.product = this.ProductList.find(item=> this.id == item.id)!
     this.productCheck=true;
   }
 }
