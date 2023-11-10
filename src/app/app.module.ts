@@ -26,6 +26,7 @@ import { UserRegistComponent } from './components/user-regist/user-regist.compon
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { CurrencyEgPipe } from './pips/currencyEg.pipe';
 import { Day2Component } from './components/day2/day2.component'
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,9 @@ import { Day2Component } from './components/day2/day2.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:LocationStrategy,useClass:HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
